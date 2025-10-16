@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ONG Esperança — Cadastro de Voluntário</title>
+  <meta name="description" content="Formulário para se inscrever como voluntário na ONG Esperança.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header role="banner">
+    <img src="imagem/voluntarios.jpg" alt="Imagem de voluntários ajudando">
+    <h1>Seja Voluntário — ONG Esperança</h1>
+
+    <nav role="navigation" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="doacao-index.html">Doações</a></li>
+        <li><a href="cadastro.html">Seja Voluntário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" role="main">
+    <section aria-labelledby="cadastro-title">
+      <h2 id="cadastro-title">Formulário de Inscrição para Voluntariado</h2>
+      <p>Preencha seus dados abaixo. Entraremos em contato por e-mail.</p>
+
+      <form action="#" method="post" aria-label="Formulário de inscrição de voluntário">
+        <p>
+          <label for="nome">Nome completo</label><br>
+          <input type="text" id="nome" name="nome" required>
+        </p>
+
+        <p>
+          <label for="email">E-mail</label><br>
+          <input type="email" id="email" name="email" required>
+        </p>
+
+        <p>
+          <label for="telefone">Telefone</label><br>
+          <input type="tel" id="telefone" name="telefone">
+        </p>
+
+        <p>
+          <label for="disponibilidade">Disponibilidade (dias/horários)</label><br>
+          <textarea id="disponibilidade" name="disponibilidade" rows="4" placeholder="Segunda e quarta, manhã..."></textarea>
+        </p>
+
+        <p>
+          <button type="submit">Enviar inscrição</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 ONG Esperança — Voluntariado.</p>
+    <p><a href="index.html">Voltar para Início</a></p>
+  </footer>
+</body>
+</html>
