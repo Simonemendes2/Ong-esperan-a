@@ -1,47 +1,293 @@
-     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
+/* ================================
+   🎨 SISTEMA DE DESIGN
+===================================*/
 
-    header {
-        background-color: #35424a;
-        color: #ffffff;
-        padding: 10px 0;
-        text-align: center;
-    }
+/* Paleta de cores (8 cores mínimas) */
+:root {
+  --cor-primaria: #35424a;
+  --cor-secundaria: #e8491d;
+  --cor-terciaria: #f4f4f4;
+  --cor-clara: #ffffff;
+  --cor-escura: #222;
+  --cor-neutra1: #cccccc;
+  --cor-neutra2: #999999;
+  --cor-neutra3: #666666;
 
-    nav {
-        margin: 0;
-        padding: 10px 0;
-        background-color: #e8491d;
-        text-align: center;
-    }
+  /* Tipografia hierárquica */
+  --font-pequena: 12px;
+  --font-normal: 16px;
+  --font-media: 20px;
+  --font-grande: 28px;
+  --font-titulo: 36px;
 
-    nav a {
-        color: #ffffff;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+  /* Sistema de espaçamento modular */
+  --espaco-1: 8px;
+  --espaco-2: 16px;
+  --espaco-3: 24px;
+  --espaco-4: 32px;
+  --espaco-5: 48px;
+  --espaco-6: 64px;
+}
 
-    nav a:hover {
-        text-decoration: underline;
-    }
+/* ================================
+   🌐 CONFIGURAÇÕES GERAIS
+===================================*/
 
-    .container {
-        width: 80%;
-        margin: auto;
-        overflow: hidden;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-terciaria);
+}
 
-    footer {
-        background-color: #35424a;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* ================================
+   🧭 CABEÇALHO E NAVEGAÇÃO
+===================================*/
+
+header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-clara);
+  padding: var(--espaco-2) 0;
+  text-align: center;
+}
+
+nav {
+  background-color: var(--cor-secundaria);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: var(--espaco-1) 0;
+}
+
+nav a {
+  color: var(--cor-clara);
+  margin: 0 var(--espaco-2);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: var(--font-normal);
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+/* Submenu Dropdown */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+nav li {
+  display: inline-block;
+  position: relative;
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  background-color: var(--cor-primaria);
+  padding: var(--espaco-2);
+  border-radius: 4px;
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+/* ================================
+   📱 MENU HAMBÚRGUER (MOBILE)
+===================================*/
+
+.menu-toggle {
+  display: none;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-clara);
+  border: none;
+  padding: var(--espaco-1) var(--espaco-2);
+  font-size: var(--font-media);
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    margin: var(--espaco-1) 0;
+  }
+}
+
+/* ================================
+   🧩 SISTEMA DE GRID E FLEXBOX
+===================================*/
+
+/* Grid principal de 12 colunas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--espaco-2);
+}
+
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-12 { grid-column: span 12; }
+
+@media (max-width: 1024px) {
+  .col-4, .col-6 { grid-column: span 12; }
+}
+
+/* Uso de flex para alinhar componentes */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  flex-wrap: wrap;
+}
+
+/* ================================
+   🧱 COMPONENTES DE INTERFACE
+===================================*/
+
+/* Cards responsivos */
+.card {
+  background-color: var(--cor-clara);
+  border: 1px solid var(--cor-neutra1);
+  border-radius: 8px;
+  padding: var(--espaco-3);
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* Botões */
+button, .btn {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-clara);
+  border: none;
+  padding: var(--espaco-2) var(--espaco-3);
+  font-size: var(--font-normal);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  background-color: #d43f12;
+}
+
+button:disabled {
+  background-color: var(--cor-neutra2);
+  cursor: not-allowed;
+}
+
+/* Formulários */
+input, select, textarea {
+  width: 100%;
+  padding: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+  border: 1px solid var(--cor-neutra1);
+  border-radius: 4px;
+  font-size: var(--font-normal);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--cor-secundaria);
+  outline: none;
+}
+
+/* Feedbacks */
+.alert {
+  background-color: #ffcc00;
+  color: #222;
+  padding: var(--espaco-2);
+  border-radius: 4px;
+  margin: var(--espaco-2) 0;
+}
+
+.toast {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-clara);
+  padding: var(--espaco-2);
+  position: fixed;
+  bottom: var(--espaco-2);
+  right: var(--espaco-2);
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Badges e tags */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-clara);
+  border-radius: 12px;
+  font-size: var(--font-pequena);
+}
+
+/* ================================
+   🧱 RODAPÉ
+===================================*/
+footer {
+  background-color: var(--cor-primaria);
+  color: var(--cor-clara);
+  text-align: center;
+  padding: var(--espaco-2) 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ================================
+   📱 BREAKPOINTS (5 RESPONSIVOS)
+===================================*/
+
+@media (max-width: 1200px) {
+  body { font-size: var(--font-normal); }
+}
+
+@media (max-width: 992px) {
+  .container { width: 90%; }
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: var(--font-grande); }
+}
+
+@media (max-width: 576px) {
+  nav a { font-size: var(--font-pequena); }
+}
+
+@media (max-width: 400px) {
+  footer { font-size: var(--font-pequena); }
+}
