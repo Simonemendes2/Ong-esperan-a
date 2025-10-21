@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projetos - ONG Esperança</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - ONG Esperança</title>
+    <link rel="stylesheet" href="estilo.css"> 
 </head>
 <body>
-  <header>
-    <h1>Projetos Sociais</h1>
-  </header>
+    <header>
+        <h1>Projetos Sociais</h1>
+        
+        <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰ Menu</button>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰ Menu</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-    </ul>
-  </nav>
+    <main class="container">
+        <section>
+            <h2>Nossos Projetos</h2>
+            <div class="grid">
+                <div class="card card-projeto col-4">
+                    <img src="imagem/educacao.jpg" alt="Crianças estudando" class="imagem-projeto">
+                    <h3>Educação para Todos</h3>
+                    <p>Aulas gratuitas e reforço escolar para crianças e adolescentes.</p>
+                </div>
 
-  <main class="container">
-    <section>
-      <h2>Nossos Projetos</h2>
-      <div class="grid">
-        <div class="card col-4">
-        <img src="imagem/educacao.jpg" alt="Crianças estudando" class="imagem-projeto">
-          <h3>Educação para Todos</h3>
-          <p>Aulas gratuitas e reforço escolar para crianças e adolescentes.</p>
-        </div>
+                <div class="card card-projeto col-4">
+                    <img src="imagem/alimentacao.jpg" alt="Distribuição de alimentos" class="imagem-projeto"> 
+                    <h3>Alimentação Solidária</h3>
+                    <p>Distribuição de cestas básicas e refeições a famílias carentes.</p>
+                </div>
 
-        <div class="card col-4">
-        <img src="imagem/alimentacao.jpg" alt="Distribuição de alimentos" class="imagem-projeto">          <h3>Alimentação Solidária</h3>
-          <p>Distribuição de cestas básicas e refeições a famílias carentes.</p>
-        </div>
+                <div class="card card-projeto col-4">
+                    <img src="imagem/saude.jpg" alt="Profissionais de saúde voluntários" class="imagem-projeto">
+                    <h3>Saúde em Ação</h3>
+                    <p>Campanhas de vacinação e atendimento médico voluntário.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="card col-4">
-        <img src="imagem/saude.jpg" alt="Profissionais de saúde voluntários" class="imagem-projeto">          <h3>Saúde em Ação</h3>
-          <p>Campanhas de vacinação e atendimento médico voluntário.</p>
-        </div>
-      </div>
-    </section>
+        <section class="como-ajudar">
+            <h2>Como Ajudar</h2>
+            <p>Você pode participar como <strong>voluntário</strong> ou realizar uma <strong>doação</strong>.</p>
+            <a href="cadastro.html" class="botao-doar">Quero Ser Voluntário</a>
+            <a href="doacao-index.html" class="botao-doar">Fazer Doação</a>
+        </section>
+    </main>
 
-    <section class="como-ajudar">
-    <h2>Como Ajudar</h2>
-    <p>Você pode participar como <strong>voluntário</strong> ou realizar uma <strong>doação</strong>.</p>
-    <a href="cadastro.html" class="botao">Quero Ser Voluntário</a>
-    <a href="doacao.html" class="botao">Fazer Doação</a>
-</section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
