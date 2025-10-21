@@ -1,63 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ONG Esperança — Cadastro</title>
-  <meta name="description" content="Formulário para se inscrever como voluntário na ONG Esperança.">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - ONG Esperança</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Máscaras simples para CPF, telefone e CEP
+    function aplicarMascara(campo, tipo) {
+      let v = campo.value.replace(/\D/g, "");
+      if (tipo === "cpf") v = v.replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      if (tipo === "telefone") v = v.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d{4})$/, "$1-$2");
+      if (tipo === "cep") v = v.replace(/(\d{5})(\d{3})$/, "$1-$2");
+      campo.value = v;
+    }
+  </script>
 </head>
 <body>
-  <header role="banner">
-    <img src="imagem/voluntarios.jpg" alt="Imagem de voluntários ajudando">
-    <h1>Seja Voluntário — ONG Esperança</h1>
-
-    <nav role="navigation" aria-label="Menu principal">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="doacao.html">Doações</a></li>
-        <li><a href="cadastro.html">Seja Voluntário</a></li>
-      </ul>
-    </nav>
+  <header>
+    <h1>Cadastro de Voluntário</h1>
   </header>
 
-  <main id="main" role="main">
-    <section aria-labelledby="cadastro-title">
-      <h2 id="cadastro-title">Formulário de Inscrição para Voluntariado</h2>
-      <p>Preencha seus dados abaixo. Entraremos em contato por e-mail.</p>
+  <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰ Menu</button>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+    </ul>
+  </nav>
 
-      <form action="#" method="post" aria-label="Formulário de inscrição de voluntário">
-        <p>
-          <label for="nome">Nome completo</label><br>
-          <input type="text" id="nome" name="nome" required>
-        </p>
+  <main class="container">
+    <section>
+      <h2>Preencha o formulário</h2>
+      <form>
+        <fieldset>
+          <legend>Dados Pessoais</legend>
 
-        <p>
-          <label for="email">E-mail</label><br>
-          <input type="email" id="email" name="email" required>
-        </p>
+          <label>Nome Completo:</label>
+          <input type="text" name="nome" required>
 
-        <p>
-          <label for="telefone">Telefone</label><br>
-          <input type="tel" id="telefone" name="telefone">
-        </p>
+          <label>E-mail:</label>
+          <input type="email" name="email" required>
 
-        <p>
-          <label for="disponibilidade">Disponibilidade (dias/horários)</label><br>
-          <textarea id="disponibilidade" name="disponibilidade" rows="4" placeholder="Segunda e quarta, manhã..."></textarea>
-        </p>
+          <label>CPF:</label>
+          <input type="text" name="cpf" maxlength="14" oninput="aplicarMascara(this,'cpf')" required>
 
-        <p>
-          <button type="submit">Enviar inscrição</button>
-        </p>
+          <label>Telefone:</label>
+          <input type="tel" name="telefone" maxlength="15" oninput="aplicarMascara(this,'telefone')" required>
+
+          <label>Data de Nascimento:</label>
+          <input type="date" name="nascimento" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço</legend>
+
+          <label>Endereço:</label>
+          <input type="text" name="endereco" required>
+
+          <label>CEP:</label>
+          <input type="text" name="cep" maxlength="9" oninput="aplicarMascara(this,'cep')" required>
+
+          <label>Cidade:</label>
+          <input type="text" name="cidade" required>
+
+          <label>Estado:</label>
+          <input type="text" name="estado" maxlength="2" required>
+        </fieldset>
+
+        <button type="submit" class="btn">Enviar Cadastro</button>
       </form>
     </section>
   </main>
 
-  <footer role="contentinfo">
-    <p>© 2025 ONG Esperança — Voluntariado.</p>
-    <p><a href="index.html">Voltar para Início</a></p>
+  <footer>
+    <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
