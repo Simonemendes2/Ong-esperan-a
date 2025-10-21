@@ -150,7 +150,7 @@ nav li:hover ul {
   background-color: var(--cor-clara);
   border: 1px solid var(--cor-neutra1);
   border-radius: 8px;
-  padding: var(--espaco-3);
+  padding: 0;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
@@ -165,7 +165,7 @@ button, .btn {
   background-color: var(--cor-secundaria);
   color: var(--cor-clara);
   border: none;
-  padding: var(--espaco-2) var(--espaco-3);
+  padding: 0;
   font-size: var(--font-normal);
   border-radius: 4px;
   cursor: pointer;
@@ -204,7 +204,15 @@ input:focus, select:focus, textarea:focus {
   border-radius: 4px;
   margin: var(--espaco-2) 0;
 }
-
+/* */ footer {
+  background-color: var(--cor-primaria);
+  color: var(--cor-clara);
+  text-align: center;
+  padding: var(--espaco-2) 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 .toast {
   background-color: var(--cor-secundaria);
   color: var(--cor-clara);
@@ -258,4 +266,39 @@ footer {
 
 @media (max-width: 400px) {
   footer { font-size: var(--font-pequena); }
+}
+/* =================================== */
+/* Estilos dos Cards de Projeto
+/* =================================== */
+
+/* Define o tamanho da imagem DENTRO do card */
+.card img {
+  width: 100%; /* Imagem ocupa 100% da largura do card */
+  height: 220px; /* Define uma altura fixa para TODAS as imagens */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  display: block;
+  /* Arredonda só os cantos de cima, acompanhando o card */
+  border-radius: 8px 8px 0 0;
+}
+
+/* Adiciona o padding de volta, mas SÓ no texto */
+.card h3, .card p {
+  padding-left: var(--espaco-3);  /* 24px na esquerda */
+  padding-right: var(--espaco-3); /* 24px na direita */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Espaçamento para o título */
+.card h3 {
+  margin-top: var(--espaco-2); /* 16px */
+  margin-bottom: var(--espaco-1); /* 8px */
+  color: var(--cor-escura);
+}
+
+/* Espaçamento para o parágrafo */
+.card p {
+  padding-bottom: var(--espaco-3); /* 24px embaixo */
+  margin-top: 0;
+  color: var(--cor-neutra3);
+  font-size: var(--font-normal);
 }
