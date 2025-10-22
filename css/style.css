@@ -170,6 +170,7 @@ button, .btn {
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
+   margin: 20px auto;   /* Centraliza horizontalmente */
 }
 
 button:hover, .btn:hover {
