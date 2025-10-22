@@ -320,3 +320,8 @@ button:hover,
 .btn:hover {
   background-color: #d94b1e; /* tom mais escuro ao passar o mouse */
 }
+button:disabled,
+.btn:disabled {
+  background-color: var(--cor-neutra2);
+  cursor: not-allowed;
+}
