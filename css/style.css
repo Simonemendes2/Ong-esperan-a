@@ -305,3 +305,8 @@ footer {
 main {
   padding-bottom: 120px;
 } /* Espaço extra para o footer fixo */
+/* Estilo para a imagem da seção "Sobre Nós" */
+.banner {
+  width: 250px;
+  height: auto;
+}
