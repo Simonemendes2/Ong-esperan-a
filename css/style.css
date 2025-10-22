@@ -302,3 +302,21 @@ footer {
   color: var(--cor-neutra3);
   font-size: var(--font-normal);
 }
+button,
+.btn {
+  display: inline-block;
+  background-color: #f15a24; /* laranja igual ao topo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  text-align: center;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #d94b1e; /* tom mais escuro ao passar o mouse */
+}
