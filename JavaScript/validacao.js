@@ -36,4 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // form.submit(); // Isso enviaria o formulário
     }
   });
-});
+});     
+
+// Fim do script de validação
