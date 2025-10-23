@@ -1,41 +1,102 @@
-// Espera o navegador carregar todo o HTML antes de rodar o JS
-document.addEventListener('DOMContentLoaded', function() {
-
-  // 1. Encontra o formulário no HTML usando o ID
+// Espera o carregamento completo do HTML
+document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('form-cadastro');
 
-  // 2. Adiciona um "escutador de eventos":
-  //    Quando o usuário tentar "enviar" (submit) o formulário...
-  form.addEventListener('submit', function(evento) {
+  form.addEventListener('submit', function (evento) {
+    evento.preventDefault(); // impede envio automático
 
-    // 3. IMPEDE o formulário de ser enviado (o comportamento padrão)
-    evento.preventDefault();
+    // Captura os campos
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cpf = document.getElementById('cpf').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const nascimento = document.getElementById('nascimento').value.trim();
 
-    // --- AQUI COMEÇA NOSSA VERIFICAÇÃO ---
+    // ======== VALIDAÇÕES ========
 
-    // 4. Encontra os inputs pelos IDs que você colocou no HTML
-    const nomeInput = document.getElementById('nome');
-    const emailInput = document.getElementById('email');
-    // (Vamos adicionar os outros depois)
-
-    // 5. Pega o que o usuário digitou (o "valor")
-    const nomeValor = nomeInput.value.trim(); // .trim() remove espaços em branco
-    const emailValor = emailInput.value.trim();
-
-    // 6. Faz a verificação (exemplo simples)
-    if (nomeValor === '') {
-      // Se o nome estiver vazio
+    if (nome === '') {
       alert('Por favor, preencha o campo Nome.');
-    } else if (emailValor === '') {
-      // Se o e-mail estiver vazio
-      alert('Por favor, preencha o campo E-mail.');
-    } else {
-      // Se tudo estiver OK (por enquanto)
-      alert('Cadastro enviado com sucesso!'); 
-      // (No futuro, aqui você enviaria os dados de verdade)
-      // form.submit(); // Isso enviaria o formulário
+      return;
     }
-  });
-});     
 
-// Fim do script de validação
+    if (email === '') {
+      alert('Por favor, preencha o campo E-mail.');
+      return;
+    }
+
+    // E-mail simples
+    const emailValido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    if (!emailValido) {
+      alert('E-mail inválido! Verifique o formato.');
+      return;
+    }
+
+    if (cpf === '') {
+      alert('Por favor, preencha o campo CPF.');
+      return;
+    }
+
+    const cpfLimpo = cpf.replace(/[^\d]+/g, '');
+    if (!validaCPF(cpfLimpo)) {
+      alert('CPF inválido! Verifique e tente novamente.');
+      return;
+    }
+
+    if (telefone === '') {
+      alert('Por favor, preencha o campo Telefone.');
+      return;
+    }
+
+    const telefoneValido = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/.test(telefone);
+    if (!telefoneValido) {
+      alert('Telefone inválido! Use o formato (11) 91234-5678.');
+      return;
+    }
+
+    if (nascimento === '') {
+      alert('Por favor, preencha a Data de Nascimento.');
+      return;
+    }
+
+    // Tudo certo!
+    alert('Cadastro enviado com sucesso!');
+    form.reset();
+  });
+
+  // ======== FUNÇÃO DE VALIDAÇÃO CPF ========
+  function validaCPF(cpf) {
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+    let soma = 0;
+    for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+    let resto = 11 - (soma % 11);
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.charAt(9))) return false;
+    soma = 0;
+    for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+    resto = 11 - (soma % 11);
+    if (resto === 10 || resto === 11) resto = 0;
+    return resto === parseInt(cpf.charAt(10));
+  }
+});
+
+// ======== FUNÇÃO PARA MÁSCARAS ========
+function aplicarMascara(campo, tipo) {
+  let valor = campo.value.replace(/\D/g, ''); // remove tudo que não é número
+
+  if (tipo === 'cpf') {
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  }
+
+  if (tipo === 'telefone') {
+    valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2');
+    valor = valor.replace(/(\d{4,5})(\d{4})$/, '$1-$2');
+  }
+
+  if (tipo === 'cep') {
+    valor = valor.replace(/(\d{5})(\d{3})$/, '$1-$2');
+  }
+
+  campo.value = valor;
+}
