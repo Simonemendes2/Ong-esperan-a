@@ -43,8 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cep.length < 8) mostrarErro("cep", "CEP deve ter 8 dígitos.");
 
     if (valido) {
-      alert("Cadastro enviado com sucesso!");
-      form.reset();
-    }
+  const dados = { nome, email, cpf, telefone, cep };
+  localStorage.setItem("cadastro", JSON.stringify(dados));
+  alert("Cadastro enviado com sucesso!");
+  form.reset();
+}
+
   });
 });
