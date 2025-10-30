@@ -1,23 +1,26 @@
-🌿 ONG Esperança
-Site institucional da ONG Esperança, criado com HTML puro e hospedado gratuitamente no GitHub Pages.
+# 🌱 ONG Esperança
 
-🌟 Objetivo
-A ONG Esperança tem como missão ajudar pessoas em situação de vulnerabilidade, oferecendo apoio social, campanhas solidárias e projetos educacionais para transformar vidas com esperança e empatia.
+Projeto desenvolvido para a disciplina de Desenvolvimento Web.
 
-💻 Tecnologias Utilizadas
-HTML5 — estrutura básica do site
-GitHub Pages — hospedagem gratuita para o projeto
-🚀 Acesse o site
-👉 Clique aqui para visitar o site da ONG Esperança https://simonemendes2.github.io/Ong-esperan-a/
+## 🎯 Objetivo
+Criar um site completo e acessível para uma ONG fictícia, aplicando HTML5, CSS3 e JavaScript, com foco em boas práticas, usabilidade e deploy.
 
-📂 Estrutura do Projeto
-📢 Projetos em Destaque
-Campanha do Agasalho — Doe roupas, cobertores e aqueça corações 💙
-Alimente uma Família — Contribua com alimentos não perecíveis 🍞
-Educar para o Futuro — Apoie cursos gratuitos para crianças e jovens 🎓
-✨ Autor
-Desenvolvido por Simone Mendes.
-📧 Contato: (simonesp1992@hotmail.com)
+## 🧠 Tecnologias
+- HTML5 semântico  
+- CSS3 responsivo  
+- JavaScript DOM + LocalStorage  
+- Git/GitHub  
+- GitHub Pages  
 
-📜 Licença
-Este projeto é de uso livre para fins educacionais.
+## ♿ Acessibilidade
+O site segue as diretrizes da WCAG 2.1 com:
+- Textos alternativos em imagens  
+- Rótulos em formulários  
+- Contraste adequado e foco visível  
+
+## 🚀 Deploy
+Acesse o site publicado:  
+👉 [https://seuusuario.github.io/ong-esperanca/](https://simonemendes2.github.io/Ong-esperan-a/)
+
+## 👩‍💻 Autora
+Simone Santos — Aluna de Análise e Desenvolvimento de Sistemas
